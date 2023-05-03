@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
         overflow: hidden;
     }
 
-    body, input-security, textarea, button {
+    body, input-security, input, textarea, button {
         font: 400 1rem Nunito, sans-serif;
     }
 `
