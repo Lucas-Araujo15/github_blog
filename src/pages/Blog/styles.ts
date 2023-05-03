@@ -2,15 +2,15 @@ import styled from 'styled-components'
 
 export const BlogContainer = styled.main`
   width: 100%;
-  max-width: 60rem;
-  height: 900px;
-  margin: auto;
+  max-width: 54rem;
+  margin: auto auto 14.625rem auto;
 `
 
 export const PostList = styled.section`
   margin-top: 4.5rem;
   display: flex;
   flex-direction: column;
+  gap: 3rem;
 
   & > div:nth-child(1) {
     display: flex;
@@ -35,4 +35,11 @@ export const PostList = styled.section`
       font-weight: 400;
     }
   }
+`
+
+export const PostListContent = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 `
