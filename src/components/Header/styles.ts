@@ -8,11 +8,15 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
 
+  img:nth-child(2) {
+    margin-bottom: 2.1875rem;
+  }
+
   &::before {
     content: '';
     position: absolute;
     width: 891px;
-    height: 52px;
+    height: 70px;
     left: calc(50% - 891px / 2 - 2.5px);
     top: 235px;
 
