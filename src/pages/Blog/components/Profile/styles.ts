@@ -67,3 +67,19 @@ export const ProfileContent = styled.div`
     gap: 1.5rem;
   }
 `
+
+export const InfoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  svg {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme['base-label']};
+  }
+
+  span {
+    font-size: 1rem;
+    color: ${(props) => props.theme['base-subtitle']};
+  }
+`

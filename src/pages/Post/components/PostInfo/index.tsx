@@ -5,8 +5,7 @@ import {
   ChatCenteredDots,
   GithubLogo,
 } from 'phosphor-react'
-import { Links, PostInfoContainer } from './styles'
-import { Info } from '../../../../components/Info'
+import { InfoContainer, Links, PostInfoContainer } from './styles'
 
 export function PostInfo() {
   return (
@@ -24,12 +23,18 @@ export function PostInfo() {
       <div>
         <h1>JavaScript data types and data structures</h1>
         <div>
-          <Info text="senninha1991" icon={<GithubLogo weight="fill" />} />
-          <Info text="Há 1 dia" icon={<CalendarBlank weight="fill" />} />
-          <Info
-            text="5 comentários"
-            icon={<ChatCenteredDots weight="fill" />}
-          />
+          <InfoContainer>
+            <GithubLogo weight="fill" />
+            <span>senninha1991</span>
+          </InfoContainer>
+          <InfoContainer>
+            <CalendarBlank weight="fill" />
+            <span>Há 1 dia</span>
+          </InfoContainer>
+          <InfoContainer>
+            <ChatCenteredDots weight="fill" />
+            <span>5 comentários</span>
+          </InfoContainer>
         </div>
       </div>
     </PostInfoContainer>

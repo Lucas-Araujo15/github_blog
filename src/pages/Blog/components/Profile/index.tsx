@@ -1,6 +1,5 @@
-import { ProfileContainer, ProfileContent } from './styles'
+import { InfoContainer, ProfileContainer, ProfileContent } from './styles'
 import avatar from '../../../../assets/senna.jpg'
-import { Info } from '../../../../components/Info'
 import {
   ArrowSquareUpRight,
   Buildings,
@@ -29,9 +28,18 @@ export function Profile() {
         </p>
 
         <div>
-          <Info text="senninha1991" icon={<GithubLogo weight="fill" />} />
-          <Info text="Formula 1" icon={<Buildings weight="fill" />} />
-          <Info text="41 seguidores" icon={<UsersThree weight="fill" />} />
+          <InfoContainer>
+            <GithubLogo weight="fill" />
+            <span>senninha1991</span>
+          </InfoContainer>
+          <InfoContainer>
+            <Buildings weight="fill" />
+            <span>Formula 1</span>
+          </InfoContainer>
+          <InfoContainer>
+            <UsersThree weight="fill" />
+            <span>41 seguidores</span>
+          </InfoContainer>
         </div>
       </ProfileContent>
     </ProfileContainer>

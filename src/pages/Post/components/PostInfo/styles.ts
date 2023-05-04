@@ -46,3 +46,19 @@ export const Links = styled.nav`
     color: ${(props) => props.theme.blue};
   }
 `
+
+export const InfoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  svg {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme['base-label']};
+  }
+
+  span {
+    font-size: 1rem;
+    color: ${(props) => props.theme['base-span']};
+  }
+`
