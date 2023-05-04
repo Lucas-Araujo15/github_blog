@@ -1,20 +1,22 @@
 import { useNavigate } from 'react-router-dom'
 import { PostCardContainer, PostCardHeader } from './styles'
 
-export function PostCard() {
+interface PostCardProps {
+  title: string
+  createdAt: string
+  body: string
+}
+
+export function PostCard({ title, body, createdAt }: PostCardProps) {
   const navigate = useNavigate()
 
   return (
     <PostCardContainer onClick={() => navigate('/post')}>
       <PostCardHeader>
-        <h3>JavaScript data types and data structures</h3>
+        <h3>{title}</h3>
         <span>Há 1 dia</span>
       </PostCardHeader>
-      <p>
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in...
-      </p>
+      <p>{body}</p>
     </PostCardContainer>
   )
 }

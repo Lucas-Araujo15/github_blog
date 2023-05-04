@@ -19,7 +19,11 @@ export const PostCardContainer = styled.article`
   span {
     line-height: 160%;
   }
+
   p {
+    height: 7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: ${(props) => props.theme['base-text']};
   }
 
