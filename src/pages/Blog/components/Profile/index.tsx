@@ -1,44 +1,40 @@
 import { InfoContainer, ProfileContainer, ProfileContent } from './styles'
-import avatar from '../../../../assets/senna.jpg'
 import {
   ArrowSquareUpRight,
   Buildings,
   GithubLogo,
   UsersThree,
 } from 'phosphor-react'
+import { useContext } from 'react'
+import { BlogContext } from '../../../../contexts/BlogContext'
 
 export function Profile() {
+  const { user } = useContext(BlogContext)
+
   return (
     <ProfileContainer>
-      <img src={avatar} alt="" />
+      <img src={user?.avatar_url} alt="" />
       <ProfileContent>
         <div>
-          <h1>Ayrton Senna</h1>
-          <a href="">
+          <h1>{user?.name}</h1>
+          <a href={user?.html_url}>
             github
             <ArrowSquareUpRight size={20} />
           </a>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          officiis ad voluptatibus dicta ut iure, maiores quibusdam odio nostrum
-          tempora expedita aliquam. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Veritatis officiis ad voluptatibus dicta ut iure,
-          maiores quibusdam odio nostrum tempora expedita aliquam
-        </p>
-
+        <p>{user?.bio}</p>
         <div>
           <InfoContainer>
             <GithubLogo weight="fill" />
-            <span>senninha1991</span>
+            <span>{user?.login}</span>
           </InfoContainer>
           <InfoContainer>
             <Buildings weight="fill" />
-            <span>Formula 1</span>
+            <span>{user?.company}</span>
           </InfoContainer>
           <InfoContainer>
             <UsersThree weight="fill" />
-            <span>41 seguidores</span>
+            <span>{user?.followers} seguidores</span>
           </InfoContainer>
         </div>
       </ProfileContent>
