@@ -6,15 +6,16 @@ import {
   GithubLogo,
 } from 'phosphor-react'
 import { InfoContainer, Links, PostInfoContainer } from './styles'
+import { NavLink } from 'react-router-dom'
 
 export function PostInfo() {
   return (
     <PostInfoContainer>
       <Links>
-        <a href="/">
+        <NavLink to={'/'}>
           <ArrowLineLeft size={20} />
           voltar
-        </a>
+        </NavLink>
         <a href="">
           ver no github
           <ArrowSquareUpRight size={20} />

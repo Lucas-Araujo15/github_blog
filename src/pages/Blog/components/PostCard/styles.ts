@@ -1,4 +1,9 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
+
+export const Link = styled(NavLink)`
+  text-decoration: none;
+`
 
 export const PostCardContainer = styled.article`
   width: 100%;
@@ -13,6 +18,7 @@ export const PostCardContainer = styled.article`
   border: 2px solid transparent;
   transition: border 0.3s;
   cursor: pointer;
+  text-decoration: none;
 
   h3,
   p,

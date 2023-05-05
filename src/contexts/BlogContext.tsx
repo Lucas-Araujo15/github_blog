@@ -6,6 +6,7 @@ import {
   useState,
 } from 'react'
 import { apiSearch, apiUsers } from '../lib/axios'
+import { useLocation } from 'react-router-dom'
 
 interface User {
   name: string
@@ -42,6 +43,8 @@ export function BlogContextProvider({ children }: BlogProviderProps) {
   const [user, setUser] = useState<User | null>(null)
   const [issues, setIssues] = useState<Issue[]>([])
 
+  const location = useLocation()
+
   const fetchUser = useCallback(async (username?: string) => {
     const { data } = await apiUsers.get(`/${username}`)
     setUser({
@@ -58,7 +61,9 @@ export function BlogContextProvider({ children }: BlogProviderProps) {
   const searchIssues = useCallback(async (text?: string) => {
     const { data } = await apiSearch.get('', {
       params: {
-        q: `${text}/repo:lucas-araujo15/github_blog`,
+        q: text
+          ? `${text}/repo:lucas-araujo15/github_blog`
+          : `repo:lucas-araujo15/github_blog`,
       },
     })
 
@@ -77,7 +82,6 @@ export function BlogContextProvider({ children }: BlogProviderProps) {
       return issue
     })
 
-    console.log(newIssuesList)
     setIssues(newIssuesList)
   }, [])
 
@@ -86,8 +90,12 @@ export function BlogContextProvider({ children }: BlogProviderProps) {
   }, [fetchUser])
 
   useEffect(() => {
-    searchIssues('teste')
+    searchIssues()
   }, [searchIssues])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
 
   return (
     <BlogContext.Provider value={{ user, issues, searchIssues }}>
