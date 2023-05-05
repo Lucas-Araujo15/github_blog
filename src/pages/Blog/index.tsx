@@ -26,6 +26,7 @@ export function Blog() {
                 body={issue.body}
                 createdAt={issue.createdAt}
                 title={issue.title}
+                number={issue.number}
                 key={issue.id}
               />
             )

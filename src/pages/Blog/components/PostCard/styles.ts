@@ -27,10 +27,12 @@ export const PostCardContainer = styled.article`
   }
 
   p {
-    height: 7rem;
+    color: ${(props) => props.theme['base-text']};
     overflow: hidden;
     text-overflow: ellipsis;
-    color: ${(props) => props.theme['base-text']};
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
   }
 
   &:hover {
@@ -46,6 +48,11 @@ export const PostCardHeader = styled.header`
 
   h3 {
     max-width: 17.6875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     font-weight: 700;
     font-size: 1.25rem;
     color: ${(props) => props.theme['base-title']};

@@ -46,4 +46,14 @@ export const PostContent = styled.div`
     gap: 1rem;
     list-style-position: inside;
   }
+
+  pre {
+    background: ${(props) => props.theme['base-post']};
+    padding: 1rem;
+    border-radius: 2px;
+    overflow-x: auto;
+    span {
+      color: red;
+    }
+  }
 `

@@ -7,8 +7,18 @@ import {
 } from 'phosphor-react'
 import { InfoContainer, Links, PostInfoContainer } from './styles'
 import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { BlogContext } from '../../../../contexts/BlogContext'
 
-export function PostInfo() {
+interface PostInfoProps {
+  title: string | undefined
+  comments: number | undefined
+  htmlUrl: string | undefined
+}
+
+export function PostInfo({ comments, title, htmlUrl }: PostInfoProps) {
+  const { user } = useContext(BlogContext)
+
   return (
     <PostInfoContainer>
       <Links>
@@ -16,17 +26,17 @@ export function PostInfo() {
           <ArrowLineLeft size={20} />
           voltar
         </NavLink>
-        <a href="">
+        <a href={htmlUrl}>
           ver no github
           <ArrowSquareUpRight size={20} />
         </a>
       </Links>
       <div>
-        <h1>JavaScript data types and data structures</h1>
+        <h1>{title}</h1>
         <div>
           <InfoContainer>
             <GithubLogo weight="fill" />
-            <span>senninha1991</span>
+            <span>{user?.login}</span>
           </InfoContainer>
           <InfoContainer>
             <CalendarBlank weight="fill" />
@@ -34,7 +44,7 @@ export function PostInfo() {
           </InfoContainer>
           <InfoContainer>
             <ChatCenteredDots weight="fill" />
-            <span>5 comentários</span>
+            <span>{comments} comentários</span>
           </InfoContainer>
         </div>
       </div>

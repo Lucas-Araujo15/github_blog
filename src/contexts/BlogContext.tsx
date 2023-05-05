@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from 'react'
-import { apiSearch, apiUsers } from '../lib/axios'
+import { apiIssues, apiSearch, apiUsers } from '../lib/axios'
 import { useLocation } from 'react-router-dom'
 
 interface User {
@@ -25,6 +25,7 @@ export interface Issue {
   createdAt: string
   body: string
   comments: number
+  number: number
 }
 
 interface BlogContexType {
@@ -67,8 +68,6 @@ export function BlogContextProvider({ children }: BlogProviderProps) {
       },
     })
 
-    console.log(data)
-
     const newIssuesList = data.items.map((item: any) => {
       const issue: Issue = {
         id: item.id,
@@ -77,6 +76,7 @@ export function BlogContextProvider({ children }: BlogProviderProps) {
         comments: item.comments,
         createdAt: item.created_at,
         html_url: item.html_url,
+        number: item.number,
       }
 
       return issue
