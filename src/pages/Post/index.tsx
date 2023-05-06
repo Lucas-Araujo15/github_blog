@@ -3,7 +3,7 @@ import { PostInfo } from './components/PostInfo'
 import { PostContainer, PostContent } from './styles'
 import ReactMarkdown from 'react-markdown'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Issue } from '../../contexts/BlogContext'
 import { apiIssue } from '../../lib/axios'
 
@@ -12,25 +12,23 @@ export function Post() {
 
   const { number } = useParams()
 
+  const loadIssueContent = useCallback(async () => {
+    const { data } = await apiIssue(`${number}`)
+
+    setIssue({
+      id: data.id,
+      title: data.title,
+      body: data.body,
+      comments: data.comments,
+      createdAt: data.created_at,
+      html_url: data.html_url,
+      number: data.number,
+    })
+  }, [number])
+
   useEffect(() => {
-    async function loadIssueContent() {
-      const { data } = await apiIssue(`${number}`)
-
-      setIssue({
-        id: data.id,
-        title: data.title,
-        body: data.body,
-        comments: data.comments,
-        createdAt: data.created_at,
-        html_url: data.html_url,
-        number: data.number,
-      })
-
-      console.log(issue)
-    }
-
     loadIssueContent()
-  }, [number, issue])
+  }, [loadIssueContent])
 
   return (
     <PostContainer>

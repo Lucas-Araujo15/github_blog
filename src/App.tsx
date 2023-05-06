@@ -4,6 +4,7 @@ import { GlobalStyle } from './styles/global'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 import { BlogContextProvider } from './contexts/BlogContext'
+import './lib/dayjs'
 
 export function App() {
   return (
